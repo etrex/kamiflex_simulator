@@ -30,3 +30,8 @@
 	width: 50%;
 	float:right;
 }
+
+#line_flex_message{
+	background-color: #dfe7eb;
+	padding-top: 10px;
+}
