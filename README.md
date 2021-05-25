@@ -1,5 +1,5 @@
 # Readme
-This is a simulator for [kamiflex](https://github.com/etrex/kamiflex) project.
+This is a simulator for the [Kamiflex](https://github.com/etrex/kamiflex) project.
 
 Deployed at [https://kamiflex-simulator.herokuapp.com/](https://kamiflex-simulator.herokuapp.com/).
 
