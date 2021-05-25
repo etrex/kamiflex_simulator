@@ -59,20 +59,18 @@
   <script>
     var editor = monaco.editor.create(document.getElementById("editor"), {
       value: `Kamiflex.hash(self) do
-      alt_text "hello world!"
-      bubble do
-        body do
-          text "hello world!"
-        end
-      end
-    end`,
+  alt_text "hello world!"
+  bubble do
+    body do
+      text "hello world!"
+    end
+  end
+end`,
       language: "ruby"
     });
 
     let jsonViewer = monaco.editor.create(document.getElementById("json_viewer"), {
-      value: `{
-        "a":"b"
-    }`,
+      value: `{}`,
       readOnly: true,
       language: "ruby"
     })
@@ -82,12 +80,10 @@
       jsonViewer.setValue(window.json);
     }
 
-    async function getFlexMessage(){
+    async function getFlexMessage(code){
       return await $.post({
         url: "/kamiflex",
-        data: JSON.stringify({
-          code: editor.getValue()
-        }),
+        data: JSON.stringify({ code }),
         contentType: "application/json",
         dataType: 'json'
       });
@@ -99,7 +95,8 @@
     }
 
     async function update(){
-      const flexMessage = await getFlexMessage()
+      const code = editor.getValue()
+      const flexMessage = await getFlexMessage(code)
       updateFlexMessageViewer(flexMessage)
       updateJsonViewer(flexMessage)
     }
