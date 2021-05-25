@@ -82,7 +82,7 @@ end`,
 
     async function getFlexMessage(code){
       return await $.post({
-        url: "/kamiflex",
+        url: "https://kamiflex-simulator.herokuapp.com/kamiflex",
         data: JSON.stringify({ code }),
         contentType: "application/json",
         dataType: 'json'
