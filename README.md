@@ -1,24 +1,11 @@
-# README
+# Readme
+This is a simulator for kamiflex project.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Deployed at [https://kamiflex-simulator.herokuapp.com/](https://kamiflex-simulator.herokuapp.com/).
 
-Things you may want to cover:
+# Preview
+![image](https://user-images.githubusercontent.com/563929/119440456-ee6ead80-bd56-11eb-9c8f-253f4821a736.png)
 
-* Ruby version
+# Feature
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Immediately update when coding.
