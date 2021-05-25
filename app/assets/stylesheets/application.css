@@ -13,11 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
 #left{
 	width: 50%;
 	float:left;
 }
- #editor {
+
+#editor {
 	height: 50vh;
 }
 #json_viewer {
