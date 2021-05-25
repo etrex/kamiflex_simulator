@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def kamiflex
     begin
+      $SAFE = 4
       json = eval(params[:code])
       render json: json
     rescue Exception => error
