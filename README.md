@@ -5,7 +5,7 @@ Deployed at [https://kamiflex-simulator.herokuapp.com/](https://kamiflex-simulat
 
 # Features
 - Render [LINE Flex Message](https://developers.line.biz/en/docs/messaging-api/using-flex-messages/) by [flex2html](https://github.com/PamornT/flex2html)
-- Use [https://github.com/microsoft/monaco-editor](https://github.com/microsoft/monaco-editor) as online code editor.
+- Use [Monaco Editor](https://github.com/microsoft/monaco-editor) as online code editor.
 - Immediately update when coding.
 
 # Some Examples
