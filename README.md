@@ -1,7 +1,7 @@
 # Readme
 This is a simulator for the [Kamiflex](https://github.com/etrex/kamiflex) project.
 
-Deployed at [https://kamiflex-simulator.herokuapp.com/](https://kamiflex-simulator.herokuapp.com/).
+Deployed at [https://etrex.tw/kamiflex_simulator/](https://etrex.tw/kamiflex_simulator/).
 
 # Features
 - Render [LINE Flex Message](https://developers.line.biz/en/docs/messaging-api/using-flex-messages/) by [flex2html](https://github.com/PamornT/flex2html).
