@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    kamiflex (0.8.0)
+      json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  kamiflex!
+
+BUNDLED WITH
+   2.0.2
