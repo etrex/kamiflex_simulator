@@ -7966,8 +7966,10 @@ run(Module).then(function() {
 
         output = main
         if output.is_a? String
+          puts "output is a string"
           puts output
         else
+          puts "to_json"
           puts output.to_json
         end
       `
