@@ -14,6 +14,7 @@
   <script src="./monaco-editor/min/vs/loader.js"></script>
 	<script src="./monaco-editor/min/vs/editor/editor.main.nls.js"></script>
 	<script src="./monaco-editor/min/vs/editor/editor.main.js"></script>
+	<script src="./miniruby-2.6.3.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <style>
@@ -81,12 +82,8 @@ end`,
     }
 
     async function getFlexMessage(code){
-      return await $.post({
-        url: "https://kamiflex-simulator.herokuapp.com/kamiflex",
-        data: JSON.stringify({ code }),
-        contentType: "application/json",
-        dataType: 'json'
-      });
+      const rubyWasmResult = await window.ruby(code);
+      return JSON.parse(rubyWasmResult.output[0].output)
     }
 
     function updateFlexMessageViewer(flexMessage){
