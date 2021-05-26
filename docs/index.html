@@ -77,17 +77,30 @@ end`,
     })
 
     function updateJsonViewer(flexMessage){
-      window.json = JSON.stringify(flexMessage, null, 2)
-      jsonViewer.setValue(window.json);
+      const json = JSON.stringify(flexMessage, null, 2)
+      jsonViewer.setValue(json);
     }
 
     async function getFlexMessage(code){
+      window.json = await callRuby(code);
+      return JSON.parse(json);
+    }
+
+    async function callRuby(code){
       const rubyWasmResult = await window.ruby(code);
       const outputs = rubyWasmResult.output;
+      const jsons = [];
+      let startCollectJson = false;
       outputs.forEach(function(output){
         console.log(output.output);
+        if(output.output[0] == "{"){
+          startCollectJson = true;
+        }
+        if(startCollectJson){
+          jsons.push(output.output)
+        }
       })
-      return JSON.parse(outputs[outputs.length - 1].output)
+      return jsons.join("");
     }
 
     function updateFlexMessageViewer(flexMessage){

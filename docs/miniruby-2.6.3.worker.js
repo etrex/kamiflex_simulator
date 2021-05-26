@@ -7966,7 +7966,7 @@ run(Module).then(function() {
 
         output = main
         if output.is_a? String
-          puts output.gsub("\n","")
+          puts output
         else
           puts output.to_json
         end
