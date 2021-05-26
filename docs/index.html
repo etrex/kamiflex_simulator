@@ -83,7 +83,11 @@ end`,
 
     async function getFlexMessage(code){
       const rubyWasmResult = await window.ruby(code);
-      return JSON.parse(rubyWasmResult.output[0].output)
+      const outputs = rubyWasmResult.output;
+      outputs.forEach(function(output){
+        console.log(output.output);
+      })
+      return JSON.parse(outputs[outputs.length - 1].output)
     }
 
     function updateFlexMessageViewer(flexMessage){
