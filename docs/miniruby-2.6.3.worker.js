@@ -7923,7 +7923,7 @@ const Module = {
     case "Calling stub instead of sigaction()":
       // ignore
       break;
-      
+
     default:
       self.postMessage({ fd: 2, output: output + "\n" });
     }
@@ -7964,7 +7964,12 @@ run(Module).then(function() {
           ${input}
         end
 
-        puts main.to_json
+        output = main
+        if output.is_a? String
+          puts output.gsub("\n","")
+        else
+          puts output.to_json
+        end
       `
     );
 
