@@ -109,15 +109,27 @@ end`,
       flex2html("line_flex_message", flexMessage)
     }
 
+    let code = editor.getValue()
+    let timeout;
+
     async function update(){
-      const code = editor.getValue()
+      console.log("update");
       const flexMessage = await getFlexMessage(code)
       updateFlexMessageViewer(flexMessage)
       updateJsonViewer(flexMessage)
     }
 
     document.addEventListener("keyup", function(e){
-      update();
+      let currentCode = editor.getValue()
+      if(currentCode == code){
+        return;
+      }else{
+        code = currentCode;
+        if(timeout){
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(update, 500);
+      }
     });
     update();
   </script>
