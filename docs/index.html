@@ -15,7 +15,7 @@
 	<script src="./monaco-editor/min/vs/editor/editor.main.nls.js"></script>
 	<script src="./monaco-editor/min/vs/editor/editor.main.js"></script>
 	<script src="./miniruby-2.6.3.js"></script>
-
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.11.1/sdk.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <style>
     #left{
@@ -57,81 +57,7 @@
     </div>
   </div>
 
-  <script>
-    console.log("version: QQ");
-    var editor = monaco.editor.create(document.getElementById("editor"), {
-      value: `Kamiflex.hash(self) do
-  alt_text "hello world!"
-  bubble do
-    body do
-      text "hello world!"
-    end
-  end
-end`,
-      language: "ruby"
-    });
-
-    let jsonViewer = monaco.editor.create(document.getElementById("json_viewer"), {
-      value: `{}`,
-      readOnly: true,
-      language: "ruby"
-    })
-
-    function updateJsonViewer(flexMessage){
-      const json = JSON.stringify(flexMessage, null, 2)
-      jsonViewer.setValue(json);
-    }
-
-    async function getFlexMessage(code){
-      window.json = await callRuby(code);
-      return JSON.parse(json);
-    }
-
-    async function callRuby(code){
-      const rubyWasmResult = await window.ruby(code);
-      const outputs = rubyWasmResult.output;
-      const jsons = [];
-      let startCollectJson = false;
-      outputs.forEach(function(output){
-        console.log(output.output);
-        if(output.output[0] == "{"){
-          startCollectJson = true;
-        }
-        if(startCollectJson){
-          jsons.push(output.output)
-        }
-      })
-      return jsons.join("");
-    }
-
-    function updateFlexMessageViewer(flexMessage){
-      $("#line_flex_message").html("")
-      flex2html("line_flex_message", flexMessage)
-    }
-
-    let code = editor.getValue()
-    let timeout;
-
-    async function update(){
-      console.log("update");
-      const flexMessage = await getFlexMessage(code)
-      updateFlexMessageViewer(flexMessage)
-      updateJsonViewer(flexMessage)
-    }
-
-    document.addEventListener("keyup", function(e){
-      let currentCode = editor.getValue()
-      if(currentCode == code){
-        return;
-      }else{
-        code = currentCode;
-        if(timeout){
-          clearTimeout(timeout);
-        }
-        timeout = setTimeout(update, 500);
-      }
-    });
-    update();
-  </script>
+  <script src="core.js"></script>
+  <script src="liff.js"></script>
 </body>
 </html>
