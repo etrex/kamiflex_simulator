@@ -14,7 +14,7 @@ async function share_target_picker(){
     return;
   }
 
-  let messages = JSON.stringify([flexMessage]);
+  let messages = [flexMessage];
 
   /* 分享訊息給好友 */
   const response = await liff.shareTargetPicker(messages);
@@ -34,5 +34,8 @@ window.onload = async function() {
   console.log("init")
   if(typeof(liff) !== 'undefined'){
     await liff_init();
+    document.querySelector("#share").addEventListener("click", share_target_picker);
   }
 };
+
+
