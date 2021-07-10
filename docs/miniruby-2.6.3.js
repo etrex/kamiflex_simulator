@@ -1,6 +1,6 @@
 (function() {
   // launch a Ruby worker before we need one
-  var nextWorker =  new Worker('miniruby-2.6.3.worker.js');
+  var nextWorker =  new Worker('miniruby-2.6.3.worker.js?t=1625915463573');
 
   function ruby(input) {
     const result = {
@@ -10,7 +10,7 @@
 
     // grab the already-launched worker, and launch a replacement in the background
     const worker = nextWorker;
-    nextWorker = new Worker('miniruby-2.6.3.worker.js');
+    nextWorker = new Worker('miniruby-2.6.3.worker.js?t=1625915463573');
 
     // send it our input
     worker.postMessage({ input: input });
