@@ -1,12 +1,14 @@
 let editor = monaco.editor.create(document.getElementById("editor"), {
-  value: `Kamiflex.hash(self) do
+  value: `json = Kamiflex.json(self) do
   alt_text "hello world!"
   bubble do
     body do
       text "hello world!"
     end
   end
-end`,
+end
+
+puts json`,
   language: "ruby"
 });
 
